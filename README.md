@@ -1,51 +1,67 @@
-🛡 AI Governance Layer MVP
+_**AI Governance Layer MVP**_
+
 Model Registry • Maturity Scoring • Runtime Validation
 
-
-🚀 Overview
+**Overview**
 
 This project demonstrates a lightweight AI Governance Layer designed to safely integrate multiple AI Proofs of Concept (POCs) into a centralized enterprise platform (Project X).
 
 It enforces:
 
 Controlled AI scaling
+
 Production readiness validation
+
 Risk & PII governance
+
 Runtime enforcement before invocation
+
 Audit visibility
 
 Principle: Standardize integration, not innovation.
-Architecture
-Project X
-     ↓
-Governance API (Node + Express)
-     ↓
-PostgreSQL (Model Registry)
-     ↓
-AI POCs
 
+**Architecture**
+Diagram Attached
 
-Frontend (Next.js) provides:
+_Provides:_
+
 Model registration
+
 Portfolio visibility
+
 Validation demo UI
 
-Central catalog storing:
-Owner
-Vendor
-Risk level
-PII usage
-SLA & logging status
-Security review state
-Maturity Scoring - Scoring is based on objective governance criteria.
+Model Registry Stores
 
-Audit Logging Tracks:
+Owner
+
+Vendor
+
+Risk level
+
+PII usage
+
+SLA & logging status
+
+Security review state
+
+Maturity Scoring
+
+Scoring is based on objective governance criteria.
+
+Audit Logging
+
+_Tracks:_
+
 Model registration
+
 Governance validation
+
 Decision outcomes
+
 Ensuring transparency and traceability.
 
-Tech Stack
+**Tech Stack**
 Backend
 	Node.js
 	Express
@@ -60,35 +76,48 @@ Infrastructure
 	Docker
 	PostgreSQL container
 
-Run Locally
-Start PostgreSQL (Docker)
-docker run --name governance-db --env POSTGRES_USER=postgres --env POSTGRES_PASSWORD=postgres --env POSTGRES_DB=governance -p 5432:5432 --volume "<absolute-path>/infra:/docker-entrypoint-initdb.d" -detach postgres:16 
+**Run Locally**
 
-Start Backend
+_1. Start PostgreSQL (Docker)_
+
+
+docker run \
+  --name governance-db \
+  --env POSTGRES_USER=postgres \
+  --env POSTGRES_PASSWORD=postgres \
+  --env POSTGRES_DB=governance \
+  -p 5432:5432 \
+  --volume "<absolute-path>/infra:/docker-entrypoint-initdb.d" \
+  -d postgres:16
+
+_2. Start Backend_
+
+
+Create .env inside /api:
+DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/governance
 cd api
 npm install
 npm run dev
-.env
-DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/governance
 
-Runs on:
+Backend runs on:
+
 http://localhost:4000
 
-Start Frontend
+_3. Start Frontend_
+
+Create .env.local inside /web:
+
+NEXT_PUBLIC_API_BASE=http://localhost:4000
+
 cd web
 npm install
 npm run dev
 
+Frontend runs on:
 
-.env.local
-
-NEXT_PUBLIC_API_BASE=http://localhost:4000
-
-
-Runs on:
 http://localhost:3000
 
-Demo Flow
+**Demo Flow**
 
 Register model with:
 
@@ -106,15 +135,24 @@ Validate again → ✅ ALLOW
 
 Demonstrates enforceable runtime governance.
 
-Evolution Path
+**Evolution Path**
+
 This MVP can evolve into a full AI Control Plane:
+
 Traffic throttling
+
 Cost governance
+
 Vendor exposure monitoring
+
 Drift detection
+
 Policy-as-code engine
+
 Real-time revocation
 
-Why This Matters
+**Why This Matters**
+
 AI at scale is not a modeling challenge — it is a governance and integration challenge.
+
 This solution enables federated innovation while maintaining centralized enterprise control.

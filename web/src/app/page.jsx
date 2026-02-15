@@ -43,6 +43,7 @@ export default async function Page() {
         <div style={{ display: "flex", gap: 12, marginBottom: 16,marginTop:25 }}>
           <a className="btn btn-primary" href="/models/new">Register New Model</a>
           <a className="btn btn-primary" href="/validate">Validate for Project X</a>
+          <a className="btn btn-primary" href="/dashboard">Dashboard</a>
         </div>
       </main>
     );

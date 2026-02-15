@@ -18,7 +18,9 @@ Runtime enforcement before invocation
 
 Audit visibility
 
-Principle: Standardize integration, not innovation.
+**Principle**: _Standardize integration, not the innovation._
+
+__________________________________________________________________
 
 **Architecture**
 Diagram Attached
@@ -60,6 +62,7 @@ Governance validation
 Decision outcomes
 
 Ensuring transparency and traceability.
+_____________________________________________________________
 
 **Tech Stack**
 
@@ -82,9 +85,13 @@ _Infrastructure_
 	Docker
 	PostgreSQL container
 
+_____________________________________________________________
+
 **Run Locally**
 
-_1. Start PostgreSQL (Docker)_
+_1. Clone the GIT Repo_
+
+_2. Start PostgreSQL (Docker)_
 
 
 docker run \
@@ -96,32 +103,40 @@ docker run \
   --volume "<absolute-path>/infra:/docker-entrypoint-initdb.d" \
   -d postgres:16
 
-_2. Start Backend_
+_3. Start Backend_
 
 
 Create .env inside /api:
+
 DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/governance
+
 cd api
+
 npm install
+
 npm run dev
 
 Backend runs on:
 
 http://localhost:4000
 
-_3. Start Frontend_
+_4. Start Frontend_
 
 Create .env.local inside /web:
 
 NEXT_PUBLIC_API_BASE=http://localhost:4000
 
 cd web
+
 npm install
+
 npm run dev
 
 Frontend runs on:
 
 http://localhost:3000
+
+_____________________________________________________________
 
 **Demo Flow**
 
@@ -141,6 +156,8 @@ Validate again → ✅ ALLOW
 
 Demonstrates enforceable runtime governance.
 
+_____________________________________________________________
+
 **Evolution Path**
 
 This MVP can evolve into a full AI Control Plane:
@@ -156,6 +173,8 @@ Drift detection
 Policy-as-code engine
 
 Real-time revocation
+
+_____________________________________________________________
 
 **Why This Matters**
 

@@ -62,17 +62,23 @@ Decision outcomes
 Ensuring transparency and traceability.
 
 **Tech Stack**
-Backend
+
+_Backend_
+
 	Node.js
 	Express
 	PostgreSQL
 	pg
 	Zod
-Frontend
+
+_Frontend_
+
 	Next.js (App Router)
 	React
 	Custom CSS (corporate theme)
-Infrastructure
+
+_Infrastructure_
+
 	Docker
 	PostgreSQL container
 

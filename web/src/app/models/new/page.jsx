@@ -23,7 +23,7 @@ export default function NewModel() {
   async function submit(e) {
     e.preventDefault();
     setResult(null);
-    const res = await fetch(`${base}/models/register`, {
+    const res = await fetch(`/api/models/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-actor": "interview-demo" },
       body: JSON.stringify(form),
@@ -49,13 +49,13 @@ export default function NewModel() {
           </label>
         ))}
 
-        <label>model_type
+        <label>Model Type
           <select value={form.model_type} onChange={e => update("model_type", e.target.value)} style={{ width:"100%", padding:8 }}>
             <option>LLM</option><option>ML</option><option>RULE</option>
           </select>
         </label>
 
-        <label>environment
+        <label>Environment
           <select value={form.environment} onChange={e => update("environment", e.target.value)} style={{ width:"100%", padding:8 }}>
             <option>Sandbox</option><option>Production</option>
           </select>
@@ -73,13 +73,13 @@ export default function NewModel() {
           </label>
         ))}
 
-        <label>security_review_status
+        <label>Security Review Status
           <select value={form.security_review_status} onChange={e => update("security_review_status", e.target.value)} style={{ width:"100%", padding:8 }}>
             <option>Pending</option><option>Approved</option><option>Rejected</option>
           </select>
         </label>
 
-        <label>risk_level
+        <label>Risk Level
           <select value={form.risk_level} onChange={e => update("risk_level", e.target.value)} style={{ width:"100%", padding:8 }}>
             <option>Low</option><option>Medium</option><option>High</option>
           </select>
